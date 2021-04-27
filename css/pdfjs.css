@@ -1,0 +1,26 @@
+.pdfjs-pdf .filename,
+.pdfjs-pdf .placeholder {
+    padding: 8px 4px;
+}
+
+.pdfjs-pdf .controls button{
+    margin-right: 10px;
+}
+
+.pdfjs-pdf .controls button:last-child {
+    margin-right: 0;
+}
+
+.pdfjs-pdf input[type="hidden"] ~ .filename {
+    display: none;
+}
+.pdfjs-pdf input[type="hidden"] ~ .placeholder {
+    display: block;
+}
+
+.pdfjs-pdf input[type="hidden"].hasvalue ~ .filename {
+    display: block;
+}
+.pdfjs-pdf input[type="hidden"].hasvalue ~ .placeholder {
+    display: none;
+}
