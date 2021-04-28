@@ -4,9 +4,9 @@ class BBPDFJS extends FLBuilderModule {
   public function __construct()
   {
     parent::__construct(array(
-      'name'            => __( 'PDF Viewer', 'fl-builder' ),
-      'description'     => __( 'PDF Viewer', 'fl-builder' ),
-      'category'        => __( 'Media', 'fl-builder' ),      
+      'name'            => __( 'PDF Viewer', 'bb-pdfjs' ),
+      'description'     => __( 'PDF Viewer', 'bb-pdfjs' ),
+      'category'        => __( 'Media', 'bb-pdfjs' ),      
       'dir'             => BBPDFJS_DIR . 'modules/pdfjs/',
       'url'             => BBPDFJS_URL . 'modules/pdfjs/',
       'icon'            => 'button.svg',
@@ -19,19 +19,20 @@ class BBPDFJS extends FLBuilderModule {
 
 FLBuilder::register_module( 'BBPDFJS', array(
   'general'      => array(
-      'title'         => __( 'General', 'fl-builder' ),
+      'title'         => __( 'General', 'bb-pdfjs' ),
       'sections'      => array(
           'pdfviewer'  => array(
-              'title'         => __( 'PDF Viewer', 'fl-builder' ),
+              'title'         => __( 'PDF Viewer', 'bb-pdfjs' ),
               'fields'        => array(
                 'pdf' => array(
                   'type'          => 'pdfjs-pdf',
-                  'label'         => __( 'Select PDF File', 'textdomain' ),
+                  'label'         => __( 'Select PDF File', 'bb-pdfjs' ),
+                  'connections' => array( 'custom_field' ),
                 ),
             )
           ),
           'viewersettings'  => array(
-            'title'         => __( 'Settings', 'fl-builder' ),
+            'title'         => __( 'Settings', 'bb-pdfjs' ),
             'fields'        => array(
                 'viewer_width' => array(
                   'type'         => 'unit',
@@ -49,29 +50,51 @@ FLBuilder::register_module( 'BBPDFJS', array(
                 ),
                 'fullscreen' => array(
                   'type'          => 'select',
-                  'label'         => __( 'Enable Fullscreen?', 'fl-builder' ),
+                  'label'         => __( 'Enable Fullscreen?', 'bb-pdfjs' ),
                   'default'       => 'true',
                   'options'       => array(
-                    'true'      => __( 'True', 'fl-builder' ),
-                    'false'      => __( 'False', 'fl-builder' )
+                    'true'      => __( 'True', 'bb-pdfjs' ),
+                    'false'      => __( 'False', 'bb-pdfjs' )
                   ),
+                  'toggle'  => array(
+                    'false' => array(),
+                    'true'  => array(
+                        'fields' => array( 'fullscreen_target', 'fullscreen_text' ),
+                    )  
+                  )
+                ),
+                'fullscreen_target' => array(
+                  'type'          => 'select',
+                  'label'         => __( 'Open in New Tab?', 'bb-pdfjs' ),
+                  'default'       => 'false',
+                  'options'       => array(
+                    'true'      => __( 'True', 'bb-pdfjs' ),
+                    'false'      => __( 'False', 'bb-pdfjs' )
+                  ),
+                ),
+                'fullscreen_text' => array(
+                  'type'          => 'text',
+                  'label'         => __( 'Fullscreen link text', 'bb-pdfjs' ),
+                  'default'       => 'View Fullscreen',
+                  'size'          => '35',
+                  'placeholder'   => __( 'Please enter a fullscreen link text', 'bb-pdfjs' ),
                 ),
                 'download' => array(
                     'type'          => 'select',
-                    'label'         => __( 'Enable Download?', 'fl-builder' ),
+                    'label'         => __( 'Enable Download?', 'bb-pdfjs' ),
                     'default'       => 'false',
                     'options'       => array(
-                      'true'      => __( 'True', 'fl-builder' ),
-                      'false'      => __( 'False', 'fl-builder' )
+                      'true'      => __( 'True', 'bb-pdfjs' ),
+                      'false'      => __( 'False', 'bb-pdfjs' )
                     ),
                 ),
                 'print' => array(
                     'type'          => 'select',
-                    'label'         => __( 'Enable Print?', 'fl-builder' ),
+                    'label'         => __( 'Enable Print?', 'bb-pdfjs' ),
                     'default'       => 'true',
                     'options'       => array(
-                      'true'      => __( 'True', 'fl-builder' ),
-                      'false'      => __( 'False', 'fl-builder' )
+                      'true'      => __( 'True', 'bb-pdfjs' ),
+                      'false'      => __( 'False', 'bb-pdfjs' )
                     ),
                 ),
             )
