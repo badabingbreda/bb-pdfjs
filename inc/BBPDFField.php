@@ -41,3 +41,10 @@ class BBPDFField {
 
 }
 
+function pdfjs_is_url( $input ) {
+    $re = '/https:\/\/|http:\/\//';
+    preg_match( $re, $input , $matches , PREG_OFFSET_CAPTURE, 0);
+    
+    return sizeof($matches) > 0;
+    
+}

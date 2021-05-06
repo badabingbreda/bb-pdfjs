@@ -6,15 +6,6 @@ $fullscreen_target = '';
 $fullscreen_text = '';
 
 
-function pdfjs_is_url( $input ) {
-    $re = '/https:\/\/|http:\/\//';
-    preg_match( $re, $input , $matches , PREG_OFFSET_CAPTURE, 0);
-    
-    return sizeof($matches) > 0;
-    
-    
-}
-
 if ( $settings->pdf ) {
     
     if ($settings->viewer_width) {
@@ -32,7 +23,7 @@ if ( $settings->pdf ) {
     }
 
     // test if $settings->pdf returns a URL; if not, assume that it's a media-ID
-    if ( pdfjs_is_url( $settings->pdf ) ) {
+    if ( \BBPDFJS\pdfjs_is_url( $settings->pdf ) ) {
         $pdffile = $settings->pdf;
     } else {
         $pdffile =  wp_get_attachment_url( $settings->pdf);

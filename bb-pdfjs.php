@@ -10,7 +10,7 @@
  * Plugin Name: BB PDFJS
  * Plugin URI:  https://www.badabing.nl
  * Description: PDFJS Shortcode injector for Beaver Builder. Adds a module with which you can add PDF files. Needs PDF.js Viewer plugin.
- * Version:     1.1.0
+ * Version:     1.1.1
  * Author:      Badabingbreda
  * Author URI:  https://www.badabing.nl
  * Text Domain: bb-pdfjs
@@ -21,7 +21,7 @@ namespace BBPDFJS;
 use BBPDFJS\BBPDFField;
 use BBPDFJS\GithubUpdater;
 
-define( 'BBPDFJS_VERSION', '1.1.0' );
+define( 'BBPDFJS_VERSION', '1.1.1' );
 define( 'BBPDFJS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'BBPDFJS_FILE', __FILE__ );
 define( 'BBPDFJS_URL', plugins_url( '/', __FILE__ ) );
